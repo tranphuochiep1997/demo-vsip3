@@ -1,0 +1,30 @@
+1. Tại trang chủ Web GIS vào tab "Quản trị dịch vụ"
+2. Nhấn vào icon chữ "i" để xem thông tin tích hợp bản đồ
+3. Copy nội dung Code mẫu nhúng dịch vụ bản đồ vào file index.html hoặc các file ứng dụng của dự án khác
+4. Khởi tạo ứng dụng Angular:
+- Cài đặt thư viện: ng-zorro-antd
+- Thêm SDK vtmapgl vào file index.html
+  +   <script src="https://maps.viettel.vn/files/sdk//vtmap-gl-js/v1.13.1/vtmap-gl.js"></script>
+  +   <link href="https://maps.viettel.vn/files/sdk//vtmap-gl-js/v1.13.1/vtmap-gl.css" rel="stylesheet" />
+- Trong component hiển thị bản đồ:
+  + Thêm thẻ <div id="map"></div>
+  + Thêm style #map { position: absolute; width: 100%; top: 0; bottom: 0; }, lưu ý thêm style chiều cao và chiều dài cho container của thẻ #map
+  + Trong angular ngAfterViewInit thực hiện:
+    * Gọi API http://apigis.atviettelsolutions.com/mapservice/v1/presentation/map-detail?mapId=503 để lấy thông tin chi tiết bản đồ: styleUrl, groupLayers, centerLng, centerLat, defaultZoom... 
+    * Set key bản đồ vtmapgl.accessToken = '6bb2f6acb38de878d2a4ed539c280d00'; (demo only)
+    * Khởi tạo bản đồ sử dụng vtmapgl, style bản đồ trỏ đến styleUrl của MapDetail
+    * Tạo group layer sử dụng nz-tree của antd, lắng nghe sự kiện click để ẩn hiện layer
+    * Lắng nghe sự kiện styleimagemissing để thêm icon cho đối tượng
+    * Lắng nghe sự kiện click bản đồ để hiện popup chi tiết
+5. Để sử dụng các loại nền bản đồ khác thay param style lúc khởi tạo bản đồ như sau:
+map = new vtmapgl.Map({
+  container: 'map',
+  center: [0, 0], // tọa độ trung tâm [lng, lat]
+  zoom: 0, // mức zoom,
+  style: vtmapgl.STYLES.VADMIN
+});
+vtmapgl.STYLES.VTRANS nền bản đồ giao thông
+vtmapgl.STYLES.VADMIN nền bản đồ hành chính
+vtmapgl.STYLES.GTRANS nền bản đồ google
+vtmapgl.STYLES.GSAT nền vệ tinh
+vtmapgl.STYLES.VNIGHT nền ban đêm

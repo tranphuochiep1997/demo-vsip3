@@ -1,0 +1,38 @@
+<header class="d-flex flex-rows align-items-center justify-content-between px-3">
+  <div>
+    <img class="align-top" src="assets/Logo.svg" alt="">
+    <span class="fw-bold ms-2">HỆ THỐNG DỮ LIỆU NƯỚC VSIP3</span>
+    <button class="btn ms-1 btn-hamburger" title="Đóng/mở sidebar" (click)="toggleSidebar()"><fa-icon [icon]="faBars"></fa-icon></button>
+  </div>
+  <div class="fw-bold">KHAI THÁC DỮ LIỆU</div>
+</header>
+<main>
+  <div class="d-flex flex-row main">
+    <div class="sidebar d-flex flex-row" [ngStyle]="{'width.px': collapseSidebar ? 0 : 330}">
+      <div class="sidebar-menu d-flex align-items-start">
+        <div class="btn-group btn-group-vertical" role="group">
+          <button type="button" class="btn border-0 btn-tab active">
+            <span class="text-vertical-bottom-up">Lớp bản đồ</span>
+            <fa-icon [icon]="faLayerGroup"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <div class="sidebar-layer-menu flex-grow-1">
+        <div class="h-100 overflow-auto">
+          <nz-tree
+            [nzData]="nodes"
+            nzCheckable
+            [nzCheckedKeys]="defaultCheckedKeys"
+            [nzExpandAll]="true"
+            (nzCheckBoxChange)="nzEvent($event)"
+          ></nz-tree>
+        </div>
+      </div>
+    </div>
+    <div class="flex-grow-1 map-container d-flex flex-column">
+      <div class="position-relative flex-fill">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+</main>

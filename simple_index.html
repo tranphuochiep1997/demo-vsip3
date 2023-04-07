@@ -1,0 +1,63 @@
+<html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>VTMap Web API Example</title>
+      <script src="https://maps.viettel.vn/files/sdk//vtmap-gl-js/v1.13.1/vtmap-gl.js"></script>
+      <link href="https://maps.viettel.vn/files/sdk//vtmap-gl-js/v1.13.1/vtmap-gl.css" rel="stylesheet" />
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        #map {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="map"></div>
+      <script type="text/javascript">
+        vtmapgl.accessToken = '6bb2f6acb38de878d2a4ed539c280d00';
+        // Init map
+        var map = new vtmapgl.Map({
+          container: 'map',
+          style: 'http://apigis.atviettelsolutions.com/mapservice/v1/maps/style/503',
+          center: [106.797906484385, 11.1258516543406], // tọa độ trung tâm [lng, lat]
+          zoom: 14.0955007163454
+        });
+        const nav = new vtmapgl.NavigationControl();
+        map.addControl(nav, 'bottom-right');
+        map.on('styleimagemissing', (e) => loadIconImage(e.id));
+        map.on('load', function() {
+          map.on('click', function(e) {
+            const feature = map.queryRenderedFeatures(e.point)[0];
+            if (!feature) return;
+            const coordinates = feature.geometry.coordinates.slice();
+            const properties = feature.properties;
+            let html = Object.entries(properties).filter(keyValue => !['is_del', 'uuid'].includes(keyValue[0])).map(keyValue => {
+              return `<div><span style="font-weight: bold">${keyValue[0]}:</span><span>${keyValue[1]}</span></div>`;
+            }).join('');
+            if (!html) {
+              html = `<span>Không có dữ liệu thuộc tính!</span>`;
+            }
+            new vtmapgl.Popup()
+              .setLngLat(e.lngLat)
+              .setHTML(`<div>${html}</div>`)
+              .addTo(map);
+          })
+        })
+        
+        function loadIconImage(imageUri) {
+          map.loadImage(`http://apigis.atviettelsolutions.com/files/${imageUri}`, (err, loadedImage) => {
+            if (err) throw err;
+            if (!map.hasImage(imageUri)) {
+              map.addImage(imageUri, loadedImage);
+            }
+          });
+        }
+      </script>
+    </body>
+</html> 

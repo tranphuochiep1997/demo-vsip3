@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+}
+
+.text-vertical-bottom-up {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+input.form-check-input.custom-checkbox {
+  border-color: #8F9294;
+  border-width: 2px;
+  margin-top: 5px;
+  height: 1.1em;
+  width: 1.1em;
+}
+
+input.form-check-input.custom-checkbox:focus {
+  box-shadow: none;
+  border-color: #1867b2;
+}
+
+input.form-check-input.custom-checkbox:checked {
+  border-color: #1867b2;
+  background-color: white;
+}
+
+input.form-check-input.custom-checkbox:checked[type=checkbox] {
+  background-image: url("/assets/tick-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 14px;
+}
+
+input.form-check-input.custom-checkbox:checked {
+  border-color: #1867b2;
+  background-color: white;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.text-app-blue {
+  color: #1867b2;
+}
+
+.bg-app-blue {
+  background-color: #1867b2;
+}
+
+.hover-title {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  cursor: default;
+}
+
+.hover-title:hover {
+  background-color: #e2ebf1;
+}
+
+.info-popup .vtmapgl-popup-content {
+  padding: 7px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.info-popup .vtmapgl-popup-content .vtmapgl-popup-close-button {
+  z-index: 1;
+  color: #8F9294;
+  font-size: 30px;
+  padding: 5px;
+}
+
+.info-popup .vtmapgl-popup-content .vtmapgl-popup-close-button:focus {
+  outline: none;
+}
+
+.info-popup-body {
+  min-width: 250px;
+  position: relative;
+  font-size: 14px;
+  padding-bottom: 7px;
+  padding-right: 25px;
+}
+
+.info-popup-body .title {
+  font-weight: bold;
+}
+
+.info-popup-body ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

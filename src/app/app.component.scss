@@ -1,0 +1,252 @@
+header {
+  height: 50px;
+  border-bottom: 1px solid #C4C4C4;
+}
+.main {
+  height: calc(100vh - 50px);
+}
+
+.sidebar {
+  /* width: 330px; */
+  background-color: #F9F9F9;
+  font-size: 1rem;
+  overflow: hidden;
+  transition: width 0.5s;
+}
+
+@media only screen and (min-width: 1024px) {
+  .sidebar {
+    width: 350px;
+  }
+}
+
+#map {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+.sidebar-menu {
+  width: 47px;
+  background-color: #1867b2;
+}
+
+.sidebar-layer-menu {
+}
+
+.btn-tab {
+  color: white;
+  border-radius: 0;
+}
+.btn-tab:hover {
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.btn-tab:focus {
+  box-shadow: none;
+}
+.btn-tab.active {
+  color: #1867b2;
+  background-color: white;
+}
+
+ul.list {
+  list-style-type: none;
+  padding-left: 5px;
+  margin: 0;
+}
+
+ul.list-layers li input.form-check-input {
+  border-color: #8F9294;
+  border-width: 2px;
+  margin-top: 5px;
+}
+
+ul.list-layers li input.form-check-input:focus {
+  box-shadow: none;
+  border-color: #EE0033;
+}
+
+ul.list-layers li input.form-check-input:checked {
+  border-color: #EE0033;
+  background-color: white;
+}
+
+ul.list-layers li input.form-check-input:checked[type=checkbox] {
+  background-image: url("/assets/tick-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 10px;
+}
+
+.width-bigcircle {
+  width: 40px;
+}
+
+ul.list-filters {
+  padding-left: 32px;
+}
+
+ul.list-filters li {
+  padding: 5px 0px;
+  color: #787979;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+ul.list-filters li .icon-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+.rectangle {
+  display: inline-block;
+  height: 24px;
+  width: 39px;
+  background-color: black;
+  border: 1.5px solid #192E35;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.d-15 {
+  height: 15px;
+  width: 15px;
+}
+
+.dot.d-30 {
+  height: 30px;
+  width: 30px;
+}
+
+.dot.d-40 {
+  height: 40px;
+  width: 40px;
+}
+
+.filter-icon {
+  background-repeat: no-repeat;
+  height: 25px;
+  width: 25px;
+  background-size: cover;
+}
+
+.tree-icon {
+  background-image: url('/assets/tree.png');
+}
+
+.street-light {
+  background-image: url('/assets/street-light.png');
+}
+
+.fire-hydrant {
+  background-image: url('/assets/fire-hydrant.png');
+}
+
+.horizontal-line-blue {
+  background-image: url('/assets/horizontal-line-blue.png');
+}
+
+.horizontal-line-purple {
+  background-image: url('/assets/horizontal-line-purple.png');
+}
+
+.horizontal-line-red {
+  background-image: url('/assets/horizontal-line-red.png');
+}
+
+.substation {
+  background-image: url('/assets/substation.png');
+}
+
+.cabinet {
+  background-image: url('/assets/cabinet-light.png');
+}
+
+.curve {
+  width: 50px; 
+  height: 20px;  
+  border: solid 5px rgb(163, 38, 38);
+  border-color: rgb(163, 38, 38) transparent transparent transparent;
+  border-radius: 50%/20px 20px 0 0;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid black;
+}
+
+.arrow-up.blue {
+  border-bottom-color: #5EF3F3;
+}
+
+.arrow-up.green {
+  border-bottom-color: #91E184;
+}
+
+#info-panel {
+  position: absolute;
+  width: 370px;
+  top: 10px;
+  right: 10px;
+  background-color: #F9F9F9;
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
+}
+
+.info-header {
+  padding: 8px 10px;
+  font-size: 15px;
+  border-bottom: 1px solid #C4C4C4;
+}
+.info-header .btn-close {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.info-body {
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.info-body ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.info-body ul li label {
+  vertical-align: top;
+  flex: 0 0 35%;
+}
+
+.img-properties {
+  height: 90px;
+  width: 140px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-hamburger {
+  box-shadow: none;
+  outline: none;
+}
+
+.btn-hamburger:hover {
+  background-color: #1867b2;
+  color: white;
+}
